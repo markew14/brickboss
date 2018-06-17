@@ -46,4 +46,4 @@ fields:
   name: permalink
   label: Permanent URL
 pages:
-- _posts/a-simple-post.md
+- _posts/2018-06-17-a-simple-post.md
