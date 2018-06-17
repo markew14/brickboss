@@ -1,0 +1,16 @@
+---
+layout: default
+---
+   {% comment %}
+   Our landing page template
+{% endcomment %}
+{% include landingpage-intro.html %}
+{% include newsletter.html %}
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="index inner">
+    <div>{{ content }}</div>
+  </div>
+</main>
+ {% include newsletter.html %}
+    {% include footer.html %}

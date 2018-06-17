@@ -1,0 +1,59 @@
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="fb:pages" content="438170086338018" />
+
+  {% if site.plugins contains 'jekyll-seo-tag' %}
+    {% comment %}
+      Add metadata for search engines and social networks if jekyll-seo-tag plugin is enabled
+    {% endcomment %}
+    {% include head-seo.html %}
+  {% else %}
+    <title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %}</title>
+    <meta name="description" content="{{ page.excerpt | default: site.description | strip_html | normalize_whitespace | truncate: 160 | escape }}">
+    <link rel="canonical" href="{{ page.url | replace:'index.html', '' | absolute_url }}">
+  {% endif %}
+  
+  {% if jekyll.environment == 'production' %}
+    {% include pinterest.html %}
+	{% include facebook.html %}
+  {% endif %}
+
+  <script>
+    /* Cut the mustard */
+    if ( 'querySelector' in document && 'addEventListener' in window ) {
+      document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + 'js';
+    }
+  </script>
+
+  <link rel="stylesheet" href="{{ '/assets/stylesheets/main.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/mailchimp.css' | relative_url }}">
+  {% if site.data.theme.google_fonts %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={% for font in site.data.theme.google_fonts %}{{ font.name | replace: ' ', '+' }}{% if font.weights %}:{% endif %}{{ font.weights | remove: ' ' }}{% if forloop.last != true %}|{% endif %}{% endfor %}">
+  {% endif %}
+
+  {% if site.gems contains 'jekyll-feed' %}
+    {% comment %}
+      Add Atom feed link if jekyll-feed plugin is enabled
+    {% endcomment %}
+    {% include head-feed.html %}
+  {% endif %}
+  
+  <!-- make our content upgrades stand out -->
+  <style>
+  <!-- our content upgrade button -->
+   .upgrade-button {
+      background: #fefcea; background-image: -webkit-linear-gradient(top, #fefcea, #f1da36); background-image: -moz-linear-gradient(top, #fefcea, #f1da36); background-image: -ms-linear-gradient(top, #fefcea, #f1da36); background-image: -o-linear-gradient(top, #fefcea, #f1da36); background-image: linear-gradient(to bottom, #fefcea, #f1da36); -webkit-border-radius: 28; -moz-border-radius: 28; border-radius: 28px; font-family: Arial; color: #000000; font-size: 20px; padding: 10px 20px 10px 20px; text-decoration: none;
+   
+   }
+   a.upgrade-button {
+       background: #f3e2c7; background-image: -webkit-linear-gradient(top, #f3e2c7, #e9d4b3); background-image: -moz-linear-gradient(top, #f3e2c7, #e9d4b3); background-image: -ms-linear-gradient(top, #f3e2c7, #e9d4b3); background-image: -o-linear-gradient(top, #f3e2c7, #e9d4b3); background-image: linear-gradient(to bottom, #f3e2c7, #e9d4b3); text-decoration: none;
+   }
+</style>
+
+
+<script async>(function(s,u,m,o,j,v){j=u.createElement(m);v=u.getElementsByTagName(m)[0];j.async=1;j.src=o;j.dataset.sumoSiteId='8ff3f4afa5dfc6a279bdfbb4c7ba87ed0aa0aeb10727b88475d1ed2c385b0892';v.parentNode.insertBefore(j,v)})(window,document,'script','//load.sumo.com/');</script>
+
+<meta name="google-site-verification" content="quot3a_xpj2PHMxlRy6NNJ6DVY1oKaZMXFYJhLzj5n0" />
+</head>

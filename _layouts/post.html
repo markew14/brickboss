@@ -1,0 +1,82 @@
+---
+layout: default
+---
+
+{% include page-intro.html %}
+
+<main id="main" class="page-content" aria-label="Content">
+  <div class="inner">
+    <article class="entry-wrap">
+      <div class="entry-content">
+	  {% if jekyll.environment == 'production' %}
+	 
+     
+  {% endif %}
+	 <b>If you click and purchase with one of our links, we earn a commission. Thanks.</b>
+<hr>
+ {%for category in page.categories %}
+{% if category == 'article' %}
+    {% comment %} Only show Amazon ads on article pages
+<div id="amzn-assoc-ad-65e6da6a-b1a4-475e-b90a-ea2ee17f04aa"></div><script async src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=65e6da6a-b1a4-475e-b90a-ea2ee17f04aa"></script>
+{% endcomment %}
+{% endif %}
+ {% endfor %}
+
+        {{ content }}
+      </div>
+	  
+      {% if site.disqus.shortname %}
+        {% include disqus_comments.html %}
+      {% endif %}
+	  {% if jekyll.environment == 'production' %}
+	   <img src="{{ page.pinmedia }}" alt="Pinterest image for {{ page.title }}" data-pin-url="{{site.url}}{{ page.url }}" data-pin-media="{{site.url}}{{ page.pinmedia }}">
+	   <hr>
+	 
+
+	 <!-- page navigation -->
+	 <section id="more-work">
+    {% if page.previous %}
+        {% assign previous = page.previous %}
+    {% else %}
+        {% assign previous = site.posts[0] %}
+    {% endif %}
+    <div class="left">
+        <a class="equalize" href="{{site.baseurl}}{{previous.url}}" title="Previous Post: {{previous.title}}">
+            <div>
+                <h6> ← Previous Post </h6>
+                <h4> {{previous.title}} </h4>
+            </div>
+        </a>
+    </div>
+
+    {% if page.next %}
+        {% assign next = page.next %}
+    {% else %}
+        {%comment%}
+           As the array index start at zero we substract 1 to the total count,
+           we then get the last post index in the site.posts array
+        {%endcomment%}
+        {% assign last lastPostIndex = site.posts | size | minus: 1 %}
+        {% assign next = site.posts[lastPostIndex] %}
+    {% endif %}
+    <div class="right">
+        <a class="equalize" href="{{site.baseurl}}{{next.url}}" title="next Post: {{next.title}}">
+            <div>
+                <h6> Next Post →</h6>
+                <h4> {{next.title}}</h4>
+            </div>
+        </a>
+    </div>
+</section>
+	 <!-- end navigation -->
+
+  {% endif %}
+	  	  
+    </article>
+	
+	
+	
+
+    {% include footer.html %}
+  </div>
+</main>

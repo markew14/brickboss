@@ -1,0 +1,11 @@
+{% if jekyll.environment == 'production' and site.google_analytics %}
+  {% include google-analytics.html %}
+{% endif %}
+
+
+<script async src="{{ '/assets/javascripts/main.js' | relative_url }}"></script>
+
+<script type="text/javascript">
+  var subscribersSiteId = '1afae9e5-8485-4015-b839-d61191c7ddef';
+</script>
+<script type="text/javascript" src="https://cdn.subscribers.com/assets/subscribers.js"></script>

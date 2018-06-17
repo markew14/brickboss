@@ -1,0 +1,12 @@
+---
+layout: {{ layout }}
+title: "{{ title }}"
+date: {{ date }}
+summaryfeed: true
+excerpt:  
+categories: article
+image: /assets/images/ 
+author: mew
+pinmedia: /assets/images/
+permalink: /blog/replace-me/
+---
